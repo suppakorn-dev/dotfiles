@@ -1,0 +1,14 @@
+#!/bin/bash
+
+# Get a list of tmux sessions
+sessions=$(tmux list-sessions -F '#{?session_attached,,#{session_name}}' | sed '/^$/d')
+
+# Use fzf to allow searching and selecting a session with a preview
+selected_session=$(echo "$sessions" | fzf --reverse --header "Jump to Session" --preview "tmux capture-pane -pt {}")
+
+echo $selected_session
+
+# Check if a session was selected and jump to it
+if [ -n "$selected_session" ]; then
+    tmux attach -t $selected_session 
+fi
