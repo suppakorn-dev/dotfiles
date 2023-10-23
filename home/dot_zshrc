@@ -1,0 +1,26 @@
+eval "$(starship init zsh)"
+eval "$(zoxide init zsh)"
+
+export GOPATH=$HOME/go
+export GOROOT="$(brew --prefix golang)/libexec"
+export PATH="$PATH:${GOPATH}/bin:${GOROOT}/bin"
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+[[ -s "/Users/a345/.gvm/scripts/gvm" ]] && source "/Users/a345/.gvm/scripts/gvm"
+
+alias lg=lazygit
+alias n=nvim
+
+# ============== TMUX ===============
+export PATH="$HOME/bin:$PATH"
+alias tk="tmux kill-server"
+alias tl="tmux ls"
+alias ts="tmux-fzf-session-switch"
+# -----------------------------------
+
+# ============== CHEZMOI ===============
+alias cm="chezmoi $*"
+# --------------------------------------
+
