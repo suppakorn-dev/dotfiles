@@ -1,5 +1,11 @@
 local plugins = {
   {
+    "ThePrimeagen/harpoon",
+    config = function()
+      require "custom.configs.harpoon"
+    end
+  },
+  {
     "rcarriga/nvim-dap-ui",
     event = "VeryLazy",
     dependencies = "mfussenegger/nvim-dap",
