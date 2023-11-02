@@ -21,8 +21,48 @@ M.navigation = {
 
 M.dap = {
   n = {
-    ["<leader>db"] = {"<cmd> DapToggleBreakpoint <CR>", "Add breakpoint at line"},
-    ["<leader>dr"] = {"<cmd> DapContinue <CR>", "Run or continue the debugger"}
+    ["<leader>dr"] = {
+      function ()
+        require('dap').continue()
+      end,
+      "Run or continue the debugger"
+    },
+    ["<leader>dn"] = {
+      function ()
+        require('dap').step_over()
+      end,
+      "Step over"
+    },
+    ["<leader>di"] = {
+      function ()
+        require('dap').step_into()
+      end,
+      "Step into"
+    },
+    ["<leader>do"] = {
+      function ()
+        require('dap').step_out()
+      end,
+      "Step out"
+    },
+    ["<leader>dc"] = {
+      function ()
+         require'dap'.set_breakpoint(vim.fn.input('Breakpoint condition: '))
+      end,
+      "Toggle breakpoint with conditions"
+    },
+    ["<leader>dt"] = {
+      function()
+        require('dap-go').debug_test()
+      end,
+      "Debug go test"
+    },
+    ["<leader>db"] = {
+      function ()
+        require('dap').toggle_breakpoint()
+      end,
+    "Add breakpoint at line"
+    },
   },
 }
 
