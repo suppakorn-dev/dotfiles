@@ -9,6 +9,23 @@ M.disabled = {
   }
 }
 
+M.test_runner = {
+  n = {
+    ["<leader>tt"] = {
+      function ()
+        require('nvim-test').run('nearest')
+      end,
+      "Run nearest test"
+    },
+    ["<leader>tf"] = {
+      function ()
+        require('nvim-test').run('file')
+      end,
+      "Run test entire file"
+    }
+  }
+}
+
 M.navigation = {
    n = {
     ["n"] = {"nzzzv", "Place cursor at the middle of page when navigate on search result"},

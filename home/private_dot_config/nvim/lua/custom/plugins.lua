@@ -1,5 +1,11 @@
 local plugins = {
   {
+    "klen/nvim-test",
+    config = function()
+      require('nvim-test').setup()
+    end
+  },
+  {
     "ThePrimeagen/harpoon",
     config = function()
       require "custom.configs.harpoon"

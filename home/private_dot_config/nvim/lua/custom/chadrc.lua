@@ -1,9 +1,11 @@
 ---@type ChadrcConfig
 local M = {}
 
+vim.opt.relativenumber = true
+
 M.ui = {
-  theme = 'chadracula',
-  transparency = true
+  theme = "chadracula",
+  transparency = true,
 }
 
 M.plugins = 'custom.plugins'
